@@ -1,0 +1,14 @@
+# The main pipeline for jpmc_dabs
+resources:
+  pipelines:
+    jpmc_dabs_pipeline:
+      name: jpmc_dabs_pipeline
+      catalog: jpmc
+      schema: jpmc_dabs_${bundle.target}
+      serverless: true
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: ${workspace.file_path}/src
